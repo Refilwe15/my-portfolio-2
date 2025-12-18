@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Refilwe Mokoena - Portfolio</title>
+
+    <!-- Icons & Fonts -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: linear-gradient(-45deg, #f7f7f7, #ffe6ea, #f7f7f7);
+        background-size: 400% 400%;
+        animation: gradientBG 12s ease infinite;
+        color: #333;
+        overflow-x: hidden;
+        transition: 0.3s;
+      }
+
+      body.dark {
+        background: linear-gradient(-45deg, #121212, #1f1f1f, #121212);
+        color: #e6e6e6;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      header {
+        background: white;
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+      body.dark header {
+        background: #1a1a1a;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+      }
+      .nav-content {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+      }
+      .logo {
+        font-size: 1.7rem;
+        font-weight: 700;
+        color: #ff4c60;
+        margin-right: auto;
+      }
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 25px;
+      }
+      nav a:hover {
+        color: #ff4c60;
+      }
+      .dark-toggle {
+        background: transparent;
+        border: none;
+        font-size: 1.6rem;
+        cursor: pointer;
+        color: #ff4c60;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 22px;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+      .btn-primary {
+        background: #ff4c60;
+        color: white;
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        background: #e63e53;
+      }
+      .btn-outline {
+        border: 2px solid #ff4c60;
+        color: #ff4c60;
+        padding: 10px 18px;
+        border-radius: 8px;
+        margin-top: 10px;
+      }
+      .btn-outline:hover {
+        background: #ff4c60;
+        color: white;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+      .section-title {
+        font-size: 2rem;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .section-subtitle {
+        text-align: center;
+        margin-bottom: 40px;
+        color: #777;
+      }
+
+      .about-box {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07);
+      }
+      body.dark .about-box {
+        background: #1f1f1f;
+      }
+
+      /* HERO */
+      #hero {
+        padding: 90px 0;
+      }
+      .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      .hero-text {
+        flex: 1;
+        padding-right: 40px;
+      }
+      .hero-text h1 {
+        font-size: 3rem;
+        margin-bottom: 10px;
+      }
+      #typing {
+        font-size: 1.1rem;
+        min-height: 30px;
+        margin-bottom: 20px;
+      }
+      .hero-img img {
+        width: 330px;
+        height: 420px;
+        border-radius: 50% / 40%;
+        border: 7px solid #ff4c60;
+        object-fit: cover;
+      }
+
+      /* EXPERIENCE & EDUCATION */
+      .info-item {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+      .info-item i {
+        font-size: 2rem;
+        color: #ff4c60;
+      }
+
+      /* SKILLS */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 25px;
+      }
+      .skill-card {
+        background: white;
+        padding: 22px;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+      }
+      .skill-card i {
+        font-size: 2.3rem;
+        color: #ff4c60;
+        display: block;
+        margin-bottom: 8px;
+      }
+      .skill-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 25px rgba(255, 76, 96, 0.4);
+      }
+      body.dark .skill-card {
+        background: #1f1f1f;
+      }
+
+      /* PROJECTS */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+      }
+      .project-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        transition: 0.3s;
+      }
+      .project-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 0 25px rgba(255, 76, 96, 0.4);
+      }
+      body.dark .project-card {
+        background: #1f1f1f;
+      }
+      .project-card img {
+        width: 100%;
+        height: 170px;
+        object-fit: contain;
+        background: #f3f3f3;
+      }
+      body.dark .project-card img {
+        background: #333;
+      }
+      .project-info {
+        padding: 15px;
+      }
+
+      /* CONTACT */
+      form input,
+      form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+      }
+      form button {
+        margin-top: 10px;
+      }
+
+      /* FLOATING BACKGROUND */
+      .floating-bg {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        overflow: hidden;
+      }
+      .floating-bg span {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        background: rgba(255, 76, 96, 0.15);
+        border-radius: 50%;
+        animation: float 20s infinite ease-in-out;
+      }
+      .floating-bg span:nth-child(1) {
+        top: 20%;
+        left: 10%;
+      }
+      .floating-bg span:nth-child(2) {
+        top: 60%;
+        left: 70%;
+        animation-duration: 25s;
+      }
+      .floating-bg span:nth-child(3) {
+        top: 80%;
+        left: 30%;
+        animation-duration: 22s;
+      }
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-40px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      footer {
+        background: #222;
+        color: white;
+        padding: 40px 0;
+        text-align: center;
+        position: relative;
+      }
+
+      footer .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 15px;
+      }
+
+      footer .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        background: #ff4c60;
+        color: white;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        transition: 0.3s;
+      }
+
+      footer .social-links a:hover {
+        background: #e63e53;
+        transform: translateY(-5px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="floating-bg"><span></span><span></span><span></span></div>
+
+    <!-- HEADER -->
+    <header>
+      <div class="container nav-content">
+        <div class="logo">RM</div>
+        <nav>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="dark-toggle" id="darkToggle">
+          <i class="ri-moon-line"></i>
+        </button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="container hero-content reveal">
+        <div class="hero-text">
+          <h1>Hi, I'm <span style="color: #ff4c60">Refilwe Mokoena</span></h1>
+          <p id="typing"></p>
+          <a href="assets/iv.pdf" class="btn btn-primary" download
+            >Download CV <i class="ri-download-line"></i
+          ></a>
+        </div>
+        <div class="hero-img"><img src="assets/ll.jpg" alt="Profile" /></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="container">
+    <h2 class="section-title">About Me</h2>
+    <p class="section-subtitle">Who I am and what I do</p>
+    <div class="about-box">
+      I am a **Computer Science graduate** and a **Software Developer Trainee** at <strong>mLab Codetribe</strong>.  
+      I have practical experience in **web and mobile development**, working with **Java, Kotlin, React, React Native, SQL, JSP, and Servlets**.  
+      I am passionate about creating **clean, modern, and user-friendly applications** that solve real-world problems.  
+
+      <br><br>
+      My skills include:
+      <ul>
+        <li>Frontend development using HTML, CSS, JavaScript, and React</li>
+        <li>Backend development using Node.js, Java, Kotlin, SQL, and EJB</li>
+        <li>Version control and collaboration using Git/GitHub</li>
+        <li>Designing responsive, accessible, and visually appealing UI/UX</li>
+      </ul>
+
+      <br>
+      Beyond coding, I enjoy **learning new technologies**, exploring **AI & mobile app trends**, and collaborating on **team projects** to build solutions that make a difference.
+    </div>
+  </div>
+</section>
+
+
+    <!-- EDUCATION -->
+    <section id="education" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">My academic background</p>
+        <div class="about-box">
+          <div class="info-item">
+            <i class="ri-graduation-cap-line"></i>
+            <div>
+              <h3>Tshwane University of Technology</h3>
+              <p>Diploma in Computer Science (Completed 2025)</p>
+              <p>
+                Studied programming, databases, software engineering, web &
+                mobile development.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-subtitle">Where I gained real skills</p>
+        <div class="about-box">
+          <div class="info-item">
+            <i class="ri-code-box-line"></i>
+            <div>
+              <h3>mLab Codetribe – Software Developer Trainee</h3>
+              <ul>
+                <li>
+                  Built web and mobile apps using React, React Native, Java &
+                  Kotlin
+                </li>
+                <li>Backend development with SQL & EJB</li>
+                <li>
+                  Used Git/GitHub for version control & team collaboration
+                </li>
+                <li>Debugged and optimized applications for performance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="ri-javascript-fill"></i>JavaScript
+          </div>
+          <div class="skill-card"><i class="ri-reactjs-fill"></i>React</div>
+          <div class="skill-card"><i class="ri-nodejs-fill"></i>Node.js</div>
+          <div class="skill-card"><i class="ri-java-fill"></i>Java</div>
+          <div class="skill-card"><i class="ri-kotlin-fill"></i>Kotlin</div>
+          <div class="skill-card"><i class="ri-database-fill"></i>SQL</div>
+          <div class="skill-card"><i class="ri-html5-fill"></i>HTML</div>
+          <div class="skill-card"><i class="ri-css3-fill"></i>CSS</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">Some of my best work</p>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img src="assets/cc-removebg-preview.png" />
+            <div class="project-info">
+              <h3>Converter Calculator</h3>
+              <p>
+                Unit conversion web app for length, weight, and temperature.
+              </p>
+              <a
+                class="btn btn-outline"
+                href="https://refilwe15.github.io/convertor-hub-web-app/"
+                target="_blank"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="assets/istockphoto-1069238856-612x612-removebg-preview.png"
+            />
+            <div class="project-info">
+              <h3>Task Management App</h3>
+              <p>Organize daily tasks with a simple and intuitive interface.</p>
+              <a
+                class="btn btn-outline"
+                href="https://refilwe15.github.io/task-4.4-starter/"
+                target="_blank"
+                >View Project</a
+              >
+            </div>
+          </div>
+          <div class="project-card">
+            <img src="assets/1111.png" />
+            <div class="project-info">
+              <h3>Weather App</h3>
+              <p>Live weather updates using an external API.</p>
+              <a
+                class="btn btn-outline"
+                href="https://weather-app-react-task4-codetribe.vercel.app/"
+                target="_blank"
+                >View Project</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-subtitle">
+          Get in touch for projects or collaboration
+        </p>
+        <div class="about-box">
+          <form
+            action="mailto:refilwemokoena@email.com"
+            method="post"
+            enctype="text/plain"
+          >
+            <label for="name">Name</label><br />
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Your Name"
+              required
+            /><br />
+            <label for="email">Email</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            /><br />
+            <label for="message">Message</label><br />
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              placeholder="Your Message"
+              required
+            ></textarea
+            ><br />
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      
+      <div class="social-links" style="margin-top: 10px">
+        <a href="https://www.linkedin.com/in/refilwe-mokoena/" target="_blank"
+          ><i class="ri-linkedin-box-fill"></i
+        ></a>
+        <a href="https://github.com/refilwe15" target="_blank"
+          ><i class="ri-github-fill"></i
+        ></a>
+        <a href="https://twitter.com/refilwe" target="_blank"
+          ><i class="ri-twitter-fill"></i
+        ></a>
+      </div>
+      <div class  ="container" style="margin-top: 15px">
+        
+      © 2025 Refilwe Mokoena. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // Dark Mode
+      const toggle = document.getElementById("darkToggle");
+      const icon = toggle.querySelector("i");
+      toggle.onclick = () => {
+        document.body.classList.toggle("dark");
+        icon.classList.toggle("ri-sun-line");
+        icon.classList.toggle("ri-moon-line");
+      };
+
+      // Typing Effect
+      const text =
+        "Computer Science Student | mLab Codetribe Trainee | Aspiring Software Developer";
+      let i = 0;
+      const typing = document.getElementById("typing");
+      function type() {
+        if (i < text.length) {
+          typing.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(type, 50);
+        }
+      }
+      type();
+
+      // Scroll Reveal
+      const reveals = document.querySelectorAll(".reveal");
+      window.addEventListener("scroll", () => {
+        reveals.forEach((el) => {
+          if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add("active");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
