@@ -52,6 +52,30 @@
           background-position: 0% 50%;
         }
       }
+      .about-content {
+  line-height: 1.8;
+  font-size: 0.95rem;
+}
+
+.about-content p {
+  margin-bottom: 15px;
+}
+
+.about-content ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.about-content ul li {
+  margin-bottom: 8px;
+  list-style: disc;
+}
+
+.about-highlight {
+  color: #ff4c60;
+  font-weight: 600;
+}
+
 
       a {
         text-decoration: none;
@@ -192,6 +216,10 @@
         font-size: 2rem;
         color: #ff4c60;
       }
+      .about-info .info-item {
+  margin-bottom: 20px;
+}
+
 
       /* SKILLS */
       .skills-grid {
@@ -378,31 +406,66 @@
         <div class="hero-img"><img src="assets/ll.jpg" alt="Profile" /></div>
       </div>
     </section>
-
-    <!-- ABOUT -->
+<!-- ABOUT -->
 <section id="about" class="reveal">
   <div class="container">
     <h2 class="section-title">About Me</h2>
     <p class="section-subtitle">Who I am and what I do</p>
-    <div class="about-box">
-      I am a **Computer Science graduate** and a **Software Developer Trainee** at <strong>mLab Codetribe</strong>.  
-      I have practical experience in **web and mobile development**, working with **Java, Kotlin, React, React Native, SQL, JSP, and Servlets**.  
-      I am passionate about creating **clean, modern, and user-friendly applications** that solve real-world problems.  
 
-      <br><br>
-      My skills include:
-      <ul>
-        <li>Frontend development using HTML, CSS, JavaScript, and React</li>
-        <li>Backend development using Node.js, Java, Kotlin, SQL, and EJB</li>
-        <li>Version control and collaboration using Git/GitHub</li>
-        <li>Designing responsive, accessible, and visually appealing UI/UX</li>
-      </ul>
+    <div class="about-box about-info">
 
-      <br>
-      Beyond coding, I enjoy **learning new technologies**, exploring **AI & mobile app trends**, and collaborating on **team projects** to build solutions that make a difference.
+      <div class="info-item">
+        <i class="ri-user-3-line"></i>
+        <div>
+          <p>
+            I am a <strong>Computer Science graduate</strong> and a
+            <strong>Software Developer Trainee</strong> at
+            <strong>mLab Codetribe</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="ri-code-line"></i>
+        <div>
+          <p>
+            I have practical experience in <strong>web and mobile development</strong>,
+            working with <strong>Java, Kotlin, React, React Native, SQL, JSP, and Servlets</strong>.
+            I enjoy building <strong>clean, modern, and user-friendly applications</strong>
+            that solve real-world problems.
+          </p>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="ri-tools-line"></i>
+        <div>
+          <p><strong>Key skills include:</strong></p>
+          <ul>
+            <li>Frontend development using HTML, CSS, JavaScript, and React</li>
+            <li>Backend development using Node.js, Java, Kotlin, SQL, and EJB</li>
+            <li>Version control and collaboration using Git and GitHub</li>
+            <li>Designing responsive and accessible UI/UX</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-item">
+        <i class="ri-lightbulb-flash-line"></i>
+        <div>
+          <p>
+            Beyond coding, I enjoy <strong>learning new technologies</strong>,
+            exploring <strong>AI and mobile app trends</strong>, and collaborating
+            on <strong>team projects</strong> to build impactful solutions.
+          </p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+
 
 
     <!-- EDUCATION -->
@@ -473,57 +536,103 @@
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="reveal">
-      <div class="container">
-        <h2 class="section-title">Projects</h2>
-        <p class="section-subtitle">Some of my best work</p>
-        <div class="projects-grid">
-          <div class="project-card">
-            <img src="assets/cc-removebg-preview.png" />
-            <div class="project-info">
-              <h3>Converter Calculator</h3>
-              <p>
-                Unit conversion web app for length, weight, and temperature.
-              </p>
-              <a
-                class="btn btn-outline"
-                href="https://refilwe15.github.io/convertor-hub-web-app/"
-                target="_blank"
-                >View Project</a
-              >
-            </div>
-          </div>
-          <div class="project-card">
-            <img
-              src="assets/istockphoto-1069238856-612x612-removebg-preview.png"
-            />
-            <div class="project-info">
-              <h3>Task Management App</h3>
-              <p>Organize daily tasks with a simple and intuitive interface.</p>
-              <a
-                class="btn btn-outline"
-                href="https://refilwe15.github.io/task-4.4-starter/"
-                target="_blank"
-                >View Project</a
-              >
-            </div>
-          </div>
-          <div class="project-card">
-            <img src="assets/1111.png" />
-            <div class="project-info">
-              <h3>Weather App</h3>
-              <p>Live weather updates using an external API.</p>
-              <a
-                class="btn btn-outline"
-                href="https://weather-app-react-task4-codetribe.vercel.app/"
-                target="_blank"
-                >View Project</a
-              >
-            </div>
-          </div>
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <div class="container">
+    <h2 class="section-title">Projects</h2>
+    <p class="section-subtitle">Some of my best work</p>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="assets/cc-removebg-preview.png" />
+        <div class="project-info">
+          <h3>Converter Calculator</h3>
+          <p>
+            Unit conversion web app for length, weight, and temperature.
+          </p>
+          <a
+            class="btn btn-outline"
+            href="https://refilwe15.github.io/convertor-hub-web-app/"
+            target="_blank"
+            >View Project</a
+          >
         </div>
       </div>
-    </section>
+
+      <div class="project-card">
+        <img
+          src="assets/istockphoto-1069238856-612x612-removebg-preview.png"
+        />
+        <div class="project-info">
+          <h3>Task Management App</h3>
+          <p>
+            Organize daily tasks with a simple and intuitive interface.
+          </p>
+          <a
+            class="btn btn-outline"
+            href="https://refilwe15.github.io/task-4.4-starter/"
+            target="_blank"
+            >View Project</a
+          >
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="assets/1111.png" />
+        <div class="project-info">
+          <h3>Weather App</h3>
+          <p>
+            Live weather updates using an external API.
+          </p>
+          <a
+            class="btn btn-outline"
+            href="https://weather-app-react-task4-codetribe.vercel.app/"
+            target="_blank"
+            >View Project</a
+          >
+        </div>
+      </div>
+
+      <!--  NEW PROJECT ADDED -->
+      <div class="project-card">
+        <img src="assets/notes.png" alt="Notes App" />
+        <div class="project-info">
+          <h3>Notes App (React Native)</h3>
+          <p>
+            A mobile notes application built with React Native that allows users
+            to write, edit, and manage notes efficiently.
+          </p>
+          <a
+            class="btn btn-outline"
+            href="https://expo.dev/artifacts/eas/i15YAkBQTASjzdHDrPzKKC.apk"
+            target="_blank"
+          >
+            Install App
+          </a>
+        </div>
+      </div>
+       <div class="project-card">
+        <img src="assets/gbv.png" alt="GBV App" />
+        <div class="project-info">
+          <h3>GBV Support App (React Native)</h3>
+          <p>
+            A mobile application focused on Gender-Based Violence awareness,
+            support resources, and reporting, built using React Native.
+          </p>
+          <a
+            class="btn btn-outline"
+            href="https://expo.dev/accounts/refilwe15/projects/GBV-FRONT-REACT/builds/b7a89f1a-8e9c-4171-bec3-091f9e4151b9"
+            target="_blank"
+          >
+            Install App
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
     <!-- CONTACT -->
     <section id="contact" class="reveal">
@@ -600,7 +709,7 @@
 
       // Typing Effect
       const text =
-        "Computer Science Student | mLab Codetribe Trainee | Aspiring Software Developer";
+        "Computer Science Graduate | mLab Codetribe Trainee | Aspiring Software Developer";
       let i = 0;
       const typing = document.getElementById("typing");
       function type() {
