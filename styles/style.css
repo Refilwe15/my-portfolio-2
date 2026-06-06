@@ -14,11 +14,11 @@ html {
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f4f4f8;
+  background: radial-gradient(circle at top left, rgba(91, 61, 245, 0.08), transparent 30%), #f4f4f8;
   color: #111118;
   line-height: 1.6;
   overflow-x: hidden;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background 0.3s, background-color 0.3s, color 0.3s;
 }
 
 /* ============================================
@@ -299,61 +299,70 @@ img {
    HERO — PAGE 1
    ============================================ */
 .hero {
-  background-color: #eeeef7;
+  background: radial-gradient(circle at top right, rgba(91, 61, 245, 0.14), transparent 20%),
+    linear-gradient(135deg, #f7f7fe 0%, #eef0ff 52%, #f4f4f8 100%);
   position: relative;
   overflow: hidden;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, background 0.3s;
 }
 
 .hero::before {
   content: '';
   position: absolute;
-  top: -80px;
-  right: -80px;
-  width: 500px;
-  height: 500px;
-  background: radial-gradient(circle, rgba(91, 61, 245, 0.1) 0%, transparent 70%);
+  top: -100px;
+  right: -120px;
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, rgba(91, 61, 245, 0.12) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .hero-inner {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
   align-items: center;
-  gap: 70px;
+  gap: 72px;
   width: 100%;
 }
 
 .hero-photo-wrap {
-  position: relative;
-  width: 340px;
-  height: 340px;
-  flex-shrink: 0;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 32px;
+  padding: 18px;
+  border: 1px solid rgba(91, 61, 245, 0.1);
+  box-shadow: 0 35px 90px rgba(91, 61, 245, 0.12);
 }
 
 .hero-photo-wrap img {
-  width: 340px;
-  height: 340px;
-  border-radius: 50%;
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
   object-fit: cover;
-  border: 6px solid #5b3df5;
-  box-shadow: 0 0 0 5px #ffffff, 0 10px 40px rgba(91, 61, 245, 0.3);
   display: block;
+  box-shadow: 0 24px 70px rgba(91, 61, 245, 0.12);
 }
 
 .hello-tag {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
   color: #5b3df5;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+}
+
+.hero-text {
+  max-width: 640px;
 }
 
 .hero-text h1 {
-  font-size: 3.4rem;
+  font-size: clamp(3rem, 5vw, 4.2rem);
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 10px;
+  line-height: 1.02;
+  margin-bottom: 12px;
   color: #111118;
 }
 
@@ -524,22 +533,22 @@ img {
 
 .about-cards {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
 }
 
 .about-card {
-  background-color: #f4f4f8;
-  border-radius: 16px;
-  padding: 28px;
-  border: 1px solid #e2e2ec;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.04);
-  transition: transform 0.25s, box-shadow 0.25s, background-color 0.3s, border-color 0.3s;
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 32px;
+  border: none;
+  box-shadow: 0 24px 60px rgba(91, 61, 245, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s, background-color 0.3s;
 }
 
 .about-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 28px rgba(91, 61, 245, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 30px 80px rgba(91, 61, 245, 0.12);
 }
 
 .card-icon {
@@ -698,18 +707,24 @@ img {
 }
 
 .project-link {
-  font-size: 0.87rem;
-  font-weight: 600;
-  color: #5b3df5;
-  text-decoration: underline;
-  text-underline-offset: 3px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #ffffff;
+  background-color: #5b3df5;
+  padding: 12px 18px;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  transition: gap 0.2s;
+  gap: 8px;
+  transition: gap 0.2s, background-color 0.2s, transform 0.2s;
+  text-decoration: none;
 }
 
-.project-link:hover { gap: 9px; }
+.project-link:hover {
+  gap: 10px;
+  background-color: #4022d6;
+  transform: translateY(-1px);
+}
 
 /* View More Button */
 .view-more-wrap {
@@ -721,24 +736,23 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 13px 32px;
-  border-radius: 50px;
-  border: 2px solid #5b3df5;
-  color: #5b3df5;
-  background-color: transparent;
+  padding: 14px 34px;
+  border-radius: 999px;
+  border: none;
+  color: #ffffff;
+  background-color: #5b3df5;
   font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, transform 0.2s;
+  transition: background-color 0.2s, transform 0.2s;
   text-decoration: none;
 }
 
 .btn-view-more i { font-size: 1.1rem; }
 
 .btn-view-more:hover {
-  background-color: #5b3df5;
-  color: #ffffff;
+  background-color: #4022d6;
   transform: translateY(-2px);
 }
 
@@ -754,50 +768,55 @@ img {
 
 .contact-inner {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: 60px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 56px;
   align-items: start;
-  margin-top: 40px;
+  margin-top: 46px;
 }
 
 .contact-left p {
   font-size: 1rem;
   color: #6b6b80;
-  line-height: 1.7;
+  line-height: 1.75;
   margin-bottom: 26px;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 18px;
 }
 
 .contact-item {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   font-size: 0.95rem;
   color: #6b6b80;
 }
 
 .contact-item-icon {
-  width: 40px;
-  height: 40px;
-  background-color: rgba(91, 61, 245, 0.07);
-  border-radius: 10px;
+  width: 44px;
+  height: 44px;
+  background-color: rgba(91, 61, 245, 0.1);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #5b3df5;
-  font-size: 1rem;
+  font-size: 1.1rem;
   flex-shrink: 0;
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
+  background-color: #f7f7ff;
+  border-radius: 28px;
+  padding: 30px;
+  border: 1px solid #e6e7fa;
+  box-shadow: 0 28px 80px rgba(91, 61, 245, 0.08);
 }
 
 .form-group {
